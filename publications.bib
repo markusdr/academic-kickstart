@@ -1,0 +1,314 @@
+@inproceedings{dreyer-eisner-2011,
+  aclid =       {D11-1057},
+  author =      {Markus Dreyer and Jason Eisner},
+  title =       {Discovering Morphological Paradigms from Plain Text
+                 Using a {D}irichlet Process Mixture Model},
+  abstract = "We present an inference algorithm that organizes observed words (tokens) into structured inflectional paradigms (types). It also naturally predicts the spelling of unobserved forms that are missing from these paradigms, and discovers inflectional principles (grammar) that generalize to wholly unobserved words. Our Bayesian generative model of the data explicitly represents tokens, types, inflections, paradigms, and locally conditioned string edits. It assumes that inflected word tokens are generated from an infinite mixture of inflectional paradigms (string tuples). Each paradigm is sampled all at once from a graphical model, whose potential functions are weighted finitestate transducers with language-specific parameters to be learned. These assumptions naturally lead to an elegant empirical Bayes inference procedure that exploits Monte Carlo EM, belief propagation, and dynamic programming.  Given 50–100 seed paradigms, adding a 10-million-word corpus reduces prediction error for morphological inflections by up to 10%.",
+  booktitle =   {Proceedings of the Conference on Empirical Methods in
+                 Natural Language Processing (EMNLP)},
+  pages =       {616--627},
+  note =        {Supplementary material (9 pages) also available},
+  year =        {2011},
+  month =       jul,
+  keywords = {emnlp,morphology,monte carlo,dirichlet,belief propagation,graphical models},
+  address =     {Edinburgh},
+  url =         {http://cs.jhu.edu/~jason/papers/#dreyer-eisner-2011}
+}
+
+@phdthesis{dreyer-2011,
+  author =      {Markus Dreyer},
+  title =       {A Non-Parametric Model for the Discovery of
+                 Inflectional Paradigms from Plain Text Using Graphical
+                 Models over Strings},
+  abstract = "The field of statistical natural language processing has been turning toward morphologically rich languages. These languages have vocabularies that are often orders of magnitude larger than that of English, since words may be inflected in various different ways. This leads to problems with data sparseness and calls for models that can deal with this abundance of related words—models that can learn, analyze, reduce and generate morphological inflections. But surprisingly, statistical approaches to morphology are still rare, which stands in contrast to the many recent advances of sophisticated models in parsing, grammar induction, translation and many other areas of natural language processing.
+This thesis presents a novel, unified statistical approach to inflectional morphology, an approach that can decode and encode the inflectional system of a language. At the center of this approach stands the notion of inflectional paradigms. These paradigms cluster the large vocabulary of a language into structured chunks; inflections of the same word, like break, broke, breaks, breaking, … , all belong in the same paradigm. And moreover, each of these inflections has an exact place within a paradigm, since each paradigm has designated slots for each possible inflection; for verbs, there is a slot for the first person singular indicative present, one for the third person plural subjunctive past and slots for all other possible forms. The main goal of this thesis is to build probability models over inflectional paradigms, and therefore to sort the large vocabulary of a morphologically rich language into structured clusters. These models can be learned with minimal supervision for any language that has inflectional morphology. As training data, some sample paradigms and a raw, unannotated text corpus can be used.
+The models over morphological paradigms are developed in three main chapters that start with smaller components and build up to larger ones.
+The first of these chapters (Chapter 2) presents novel probability models over strings and string pairs. These are applicable to lemmatization or to relate a past tense form to its associated present tense form, or for similar morphological tasks. It turns out they are general enough to tackle the popular task of transliteration very well, as well as other string-to-string tasks.
+The second (Chapter 3) introduces the notion of a probability model over multiple strings, which is a novel variant of Markov Random Fields. These are used to relate the many inflections in an inflectional paradigm to one another, and they use the probability models from Chapter 2 as components. A novel version of belief propagation is presented, which propagates distributions over strings through a network of connected finite-state transducers, to perform inference in morphological paradigms (or other string fields).
+Finally (Chapter 4), a non-parametric joint probability model over an unannotated text corpus and the morphological paradigms from Chapter 3 is presented. This model is based on a generative story for inflectional morphology that naturally incorporates common linguistic notions, such as lexemes, paradigms and inflections. Sampling algorithms are presented that perform inference over large text corpora and their implicit, hidden morphological paradigms. We show that they are able to discover the morphological paradigms that are implicit in the corpora. The model is based on finite-state operations and seamlessly handles concatenative and nonconcatenative morphology.",
+  school =      {Johns Hopkins University},
+  year =        {2011},
+  month =       apr,
+  address =     {Baltimore, MD},
+  keywords = {morphology,monte carlo,dirichlet,belief propagation,graphical models},
+  url =         {http://cs.jhu.edu/~jason/papers/#dreyer-2011}
+}
+
+@inproceedings{dreyer-eisner-2009,
+  aclid =       {D09-1011},
+  author =      {Markus Dreyer and Jason Eisner},
+  title =       {Graphical Models over Multiple Strings},
+  abstract = "We study graphical modeling in the case of string-valued random variables. Whereas a weighted finite-state transducer can model the probabilistic relationship between two strings, we are interested in building up joint models of three or more strings. This is needed for inflectional paradigms in morphology, cognate modeling or language reconstruction, and multiple-string alignment. We propose a Markov Random Field in which each factor (potential function) is a weighted finite-state machine, typically a transducer that evaluates the relationship between just two of the strings. The full joint distribution is then a product of these factors. Though decoding is actually undecidable in general, we can still do efficient joint inference using approximate belief propagation; the necessary computations and messages are all finite-state. We demonstrate the methods by jointly predicting morphological forms.",
+  booktitle =   {Proceedings of the Conference on Empirical Methods in
+                 Natural Language Processing (EMNLP)},
+  pages =       {101--110},
+  year =        {2009},
+  month =       aug,
+  address =     {Singapore},
+  keywords = {emnlp,morphology,belief propagation,graphical models},
+  url =         {http://cs.jhu.edu/~jason/papers/#dreyer-eisner-2009}
+}
+
+@inproceedings{dreyer-smith-eisner-2008,
+  aclid =       {D08-1113},
+  author =      {Markus Dreyer and Jason R. Smith and Jason Eisner},
+  title =       {Latent-Variable Modeling of String Transductions with
+                 Finite-State Methods},
+  abstract = "String-to-string transduction is a central problem in computational linguistics and natural language processing. It occurs in tasks as diverse as name transliteration, spelling correction, pronunciation modeling and inflectional morphology. We present a conditional loglinear model for string-to-string transduction, which employs overlapping features over latent alignment sequences, and which learns latent classes and latent string pair regions from incomplete training data. We evaluate our approach on morphological tasks and demonstrate that latent variables can dramatically improve results, even when trained on small data sets. On the task of generating morphological forms, we outperform a baseline method reducing the error rate by up to 48%. On a lemmatization task, we reduce the error rates in Wicentowski (2002) by 38–92%.",
+  booktitle =   {Proceedings of the Conference on Empirical Methods in
+                 Natural Language Processing (EMNLP)},
+  pages =       {1080--1089},
+  year =        {2008},
+  month =       oct,
+  address =     {Honolulu},
+  keywords = {morphology,log-linear,finite state,lemmatization,latent variables},
+  url =         {http://cs.jhu.edu/~jason/papers/#dreyer-smith-eisner-2008}
+}
+
+@inproceedings{karakos-et-al-2008,
+  aclid =       {P08-2021},
+  author =      {Damianos Karakos and Jason Eisner and Sanjeev
+                 Khudanpur and Markus Dreyer},
+  title =       {Machine Translation System Combination using
+                 {ITG}-based Alignments},
+  abstract = "Given several systems' automatic translations of the same sentence, we show how to combine them into a confusion network, whose various paths represent composite translations that could be considered in a subsequent rescoring step. We build our confusion networks using the method of Rosti et al. (2007), but, instead of forming alignments using the tercom script (Snover et al., 2006), we create alignments that minimize invWER (Leusch et al., 2003), a form of edit distance that permits properly nested block movements of substrings. Oracle experiments with Chinese newswire and weblog translations show that our confusion networks contain paths which are significantly better (in terms of BLEU and TER) than those in tercom-based confusion networks.",
+  booktitle =   {Proceedings of ACL-08: HLT, Short Papers},
+  pages =       {81--84},
+  year =        {2008},
+  month =       jun,
+  address =     {Columbus, Ohio},
+  keywords = {acl,machine translation,itg,confusion network},
+  url =         {http://cs.jhu.edu/~jason/papers/#karakos-et-al-2008}
+}
+
+@inproceedings{dreyer-eisner-2006,
+  aclid =       {W06-1638},
+  author =      {Markus Dreyer and Jason Eisner},
+  abstract = "We study unsupervised methods for learning refinements of the nonterminals in a treebank. Following Matsuzaki et al. (2005) and Prescher (2005), we may for example split NP without supervision into NP[0] and NP[1], which behave differently. We first propose to learn a PCFG that adds such features to nonterminals in such a way that they respect patterns of linguistic feature passing: each node’s nonterminal features are either identical to, or independent of, those of its parent. This linguistic constraint reduces runtime and the number of parameters to be learned. However, it did not yield improvements when training on the Penn Treebank. An orthogonal strategy was more successful: to improve the performance of the EM learner by treebank preprocessing and by annealing methods that split nonterminals selectively. Using these methods, we can maintain high parsing accuracy while dramatically reducing the model size.",
+  title =       {Better Informed Training of Latent Syntactic
+                 Features},
+  booktitle =   {Proceedings of the Conference on Empirical Methods in
+                 Natural Language Processing (EMNLP)},
+  pages =       {317--326},
+  year =        {2006},
+  month =       jul,
+  address =     {Sydney},
+  keywords = {emnlp,parsing,semi-supervised,latent variables},
+  url =         {http://cs.jhu.edu/~jason/papers/#dreyer-eisner-2006}
+}
+
+@inproceedings{dreyer-marcu-2012-hyter,
+    abstract = "It is common knowledge that translation is an ambiguous, 1-to-n mapping process, but to date, our community has produced no empirical estimates of this ambiguity. We have developed an annotation tool that enables us to create representations that compactly encode an exponential number of correct translations for a sentence. Our findings show that naturally occurring sentences have billions of translations. Having access to such large sets of meaning-equivalent translations enables us to develop a new metric, HyTER, for translation accuracy. We show that our metric provides better estimates of machine and human translation accuracy than alternative evaluation metrics.",
+    title = "{H}y{TER}: Meaning-Equivalent Semantics for Translation Evaluation",
+    author = "Dreyer, Markus  and
+      Marcu, Daniel",
+    booktitle = "Proceedings of the 2012 Conference of the North {A}merican Chapter of the Association for Computational Linguistics (ACL): Human Language Technologies",
+    month = jun,
+    year = "2012",
+    address = "Montr{\'e}al, Canada",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/N12-1017",
+  keywords = {emnlp,lattice,machine translation,hyter,evaluation},
+    pages = "162--171",
+}
+
+@inproceedings{McNamee2009,
+abstract = {The HLTCOE participated in the entity linking and slot filling tasks at TAC 2009. A machine learning-based approach to entity linking, operating over a wide range of feature types, yielded good performance on the entity linking task. Slot-filling based on sentence selection, application of weak patterns and exploitation of redundancy was ineffective in the slot filling task.},
+author = {McNamee, Paul and Dredze, Mark and Gerber, Adam and Garera, Nikesh and Finin, Tim and Mayfield, James and Piatko, Christine and Rao, Delip and Yarowsky, David and Dreyer, Markus},
+booktitle = {Proceedings of the 2009 Text Analysis Conference},
+title = {{HLTCOE Approaches to Knowledge Base Population at TAC 2009}},
+url = {http://www.nist.gov/tac/publications/2009/participant.papers/hltcoe.proceedings.pdf},
+  keywords = {tac,entity,slot filling},
+year = {2009}
+}
+
+@inproceedings{dreyer-etal-2007-comparing,
+    abstract = "This paper describes a new method to compare reordering constraints for Statistical Machine Translation. We investigate the best possible (oracle) BLEU score achievable under different reordering constraints. Using dynamic programming, we efficiently find a reordering that approximates the highest attainable BLEU score given a reference and a set of reordering constraints. We present an empirical evaluation of popular reordering constraints: local constraints, the IBM constraints, and the Inversion Transduction Grammar (ITG) constraints. We present results for a German-English translation task and show that reordering under the ITG constraints can improve over the baseline by more than 7.5 BLEU points.",
+    title = "Comparing Reordering Constraints for {SMT} Using Efficient {BLEU} Oracle Computation",
+    author = "Dreyer, Markus  and
+      Hall, Keith  and
+      Khudanpur, Sanjeev",
+    booktitle = "Proceedings of {SSST}, {NAACL}-{HLT} 2007 / {AMTA} Workshop on Syntax and Structure in Statistical Translation",
+    month = apr,
+    year = "2007",
+    address = "Rochester, New York",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/W07-0414",
+  keywords = {naacl,machine translation,dynamic programming,reordering},
+    pages = "103--110",
+}
+
+@inproceedings{Kumar2017,
+abstract = {This paper presents the design of the machine learning architecture that underlies the Alexa Skills Kit (ASK) a large scale Spoken Language Understanding (SLU) Software Development Kit (SDK) that enables developers to extend the capabilities of Amazon's virtual assistant, Alexa. At Amazon, the infrastructure powers over 25,000 skills deployed through the ASK, as well as AWS's Amazon Lex SLU Service. The ASK emphasizes flexibility, predictability and a rapid iteration cycle for third party developers. It imposes inductive biases that allow it to learn robust SLU models from extremely small and sparse datasets and, in doing so, removes significant barriers to entry for software developers and dialogue systems researchers.},
+archivePrefix = {arXiv},
+arxivId = {1711.00549},
+author = {Kumar, Anjishnu and Gupta, Arpit and Chan, Julian and Tucker, Sam and Hoffmeister, Bjorn and Dreyer, Markus and Peshterliev, Stanislav and Gandhe, Ankur and Filiminov, Denis and Rastrow, Ariya and Monson, Christian and Kumar, Agnika},
+booktitle = {NIPS workshop on conversational AI},
+eprint = {1711.00549},
+file = {:Users/mddreyer/Library/Application Support/Mendeley Desktop/Downloaded/Kumar et al. - 2017 - Just ASK Building an Architecture for Extensible Self-Service Spoken Language Understanding.pdf:pdf},
+month = {nov},
+title = {{Just {ASK}: Building an Architecture for Extensible Self-Service Spoken Language Understanding}},
+url = {http://arxiv.org/abs/1711.00549},
+  keywords = {slot filling,amazon,speech,nlu},
+year = {2017}
+}
+
+@inproceedings{dreyer-etal-2006-vine,
+    title = "Vine Parsing and Minimum Risk Reranking for Speed and Precision",
+    author = "Dreyer, Markus  and
+      Smith, David A.  and
+      Smith, Noah A.",
+    abstract = "We describe our entry in the CoNLL-X shared task.
+The system consists of three phases: a probabilistic
+vine parser (Eisner and N. Smith, 2005) that produces unlabeled dependency trees, a probabilistic
+relation-labeling model, and a discriminative minimum risk reranker (D. Smith and Eisner, 2006). The
+system is designed for fast training and decoding and
+for high precision. We describe sources of crosslingual error and ways to ameliorate them. We then
+provide a detailed error analysis of parses produced
+for sentences in German (much training data) and
+Arabic (little training data).",
+    booktitle = "Proceedings of the Tenth Conference on Computational Natural Language Learning ({C}o{NLL}-X)",
+    month = jun,
+    year = "2006",
+    address = "New York City",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/W06-2929",
+  keywords = {conll,parsing,ranking},
+    pages = "201--205",
+}
+
+@inproceedings{Ladhak2016LatticeRnnRN,
+  title={Lattice{R}nn: Recurrent Neural Networks Over Lattices},
+  author={Faisal Ladhak and Ankur Gandhe and Markus Dreyer and Lambert Mathias and Ariya Rastrow and Bj{\"o}rn Hoffmeister},
+  abstract = "We present a new model called LatticeRnn, which generalizes recurrent neural networks (RNNs) to process weighted lattices as input, instead of sequences. A LatticeRnn can encode the complete structure of a lattice into a dense representation, which makes it suitable to a variety of problems, including rescoring, classifying, parsing, or translating lattices using deep neural networks (DNNs). In this paper, we use LatticeRnns for a classification task: each lattice represents the output from an automatic speech recognition (ASR) component of a spoken language understanding (SLU) system, and we classify the intent of the spoken utterance based on the lattice embedding computed by a LatticeRnn. We show that making decisions based on the full ASR output lattice, as opposed to 1-best or n-best hypotheses, makes SLU systems more robust to ASR errors. Our experiments yield improvements of 13% over a baseline RNN system trained on transcriptions and 10% over an n-best list rescoring system for intent classification.",
+  booktitle={Proceedings of {I}nterspeech},
+  doi={10.21437/Interspeech.2016-1583},
+  year={2016},
+  pages={695--699},
+  keywords = {interspeech,amazon,lattice, rnn, neural, speech},
+  url = "http://sail.usc.edu/publications/files/kalinliinterspeech2007.pdf"
+}
+
+@inproceedings{fan-etal-2017-transfer,
+    title = "Transfer Learning for Neural Semantic Parsing",
+    author = "Fan, Xing  and
+      Monti, Emilio  and
+      Mathias, Lambert  and
+      Dreyer, Markus",
+    booktitle = "Proceedings of the 2nd Workshop on Representation Learning for {NLP} at ACL",
+    month = aug,
+    year = "2017",
+    address = "Vancouver, Canada",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/W17-2607",
+    doi = "10.18653/v1/W17-2607",
+    pages = "48--56",
+  keywords = {acl,amazon,transfer learning,neural,semantic parsing},
+    abstract = "The goal of semantic parsing is to map natural language to a machine interpretable meaning representation language (MRL). One of the constraints that limits full exploration of deep learning technologies for semantic parsing is the lack of sufficient annotation training data. In this paper, we propose using sequence-to-sequence in a multi-task setup for semantic parsing with focus on transfer learning. We explore three multi-task architectures for sequence-to-sequence model and compare their performance with the independently trained model. Our experiments show that the multi-task setup aids transfer learning from an auxiliary task with large labeled data to the target task with smaller labeled data. We see an absolute accuracy gain ranging from 1.0{\%} to 4.4{\%} in in our in-house data set and we also see good gains ranging from 2.5{\%} to 7.0{\%} on the ATIS semantic parsing tasks with syntactic and semantic auxiliary tasks.",
+}
+
+@techreport{Burbank2005,
+author = {Burbank, A. and Carpuat, M. and Clark, S. and Dreyer, M. and Fox, P. and Groves, D. and Hall, K. and Hearne, M. and Melamed, I. D and Shen, Y. and Others},
+booktitle = {Johns Hopkins University},
+title = {{Final report of the 2005 language engineering workshop on statistical machine translation by parsing}},
+url = {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.5838&rep=rep1&type=pdf},
+year = {2005},
+  keywords = {parsing,machine translation},
+abstract = "Designers of SMT system have begun to experiment with tree-structured translation models. Unfortunately, SMT systems driven by such models are even more difficult to build than the already complicated WFST-based systems. The purpose of our workshop was to lower the barriers to entry into research involving such SMT systems. Our goals were inspired by the successful 1999 MT workshop, which had a similar purpose. Specifically, we wanted to follow that precedent to 1. build a publicly available toolkit for experimenting with tree-structured translation models; 2. build a tool for visualizing the predictions of such models; 3. demonstrate the feasibility of SMT with tree-structured models by running baseline experiments on large datasets; and 4. demonstrate that it is easy to retarget the toolkit to new language pairs."
+}
+
+@inproceedings{conf/icassp/RastrowDSKRD11,
+  added-at = {2011-07-14T00:00:00.000+0200},
+  author = {Rastrow, Ariya and Dreyer, Markus and Sethy, Abhinav and Khudanpur, Sanjeev and Ramabhadran, Bhuvana and Dredze, Mark},
+  booktitle = {Proceedings of ICASSP},
+  crossref = {conf/icassp/2011},
+  ee = {http://dx.doi.org/10.1109/ICASSP.2011.5947487},
+  isbn = {978-1-4577-0539-7},
+  pages = {5032-5035},
+  publisher = {IEEE},
+  timestamp = {2011-07-15T11:34:22.000+0200},
+  title = {Hill climbing on speech lattices: A new rescoring framework},
+  keywords = {speech,lattice,icassp,finite state},
+  abstract = "We describe a new approach for rescoring speech lattices - with long-span language models or wide-context acoustic models - that does not entail computationally intensive lattice expansion or limited rescoring of only an N-best list. We view the set of word-sequences in a lattice as a discrete space equipped with the edit-distance metric, and develop a hill climbing technique to start with, say, the 1-best hypothesis under the lattice-generating model(s) and iteratively search a local neighborhood for the highest-scoring hypothesis under the rescoring model(s); such neighborhoods are efficiently constructed via finite state techniques. We demonstrate empirically that to achieve the same reduction in error rate using a better estimated, higher order language model, our technique evaluates fewer utterance-length hypotheses than conventional N-best rescoring by two orders of magnitude. For the same number of hypotheses evaluated, our technique results in a significantly lower error rate.",
+  url = {https://www.cs.jhu.edu/~mdredze/publications/hill_climb_icassp_11.pdf},
+  year = 2011
+}
+
+
+@inproceedings{Dreyer2007,
+abstract = {We propose novel methods for integrating prosody in syntax using generative models. By adopting a grammar whose constituents have latent annotations, the influence of prosody on syntax can be learned from data. In one method, prosody is utilized to seed the latent annotations of a grammar which is then refined using EM iterations. In an orthogonal approach, we integrate prosody into grammar more explicitly using a model that jointly observes words and associated prosody. We evaluate the two methods by parsing speech data from the Switchboard corpus. The results are compared against baseline results from a model that does not use prosody. The experiments show that prosody improves a grammar in terms of accuracy as well as the parsimonious use of parameters.},
+author = {Dreyer, M. and Shafran, I.},
+booktitle = {Proceedings of Interspeech},
+mendeley-groups = {Zotero - Zotero Library},
+pages = {450--453},
+title = {{Exploiting prosody for PCFGs with latent annotations}},
+  keywords = {interspeech,prosody,speech,latent variables},
+url = {https://www.isca-speech.org/archive/archive{\_}papers/interspeech{\_}2007/i07{\_}0450.pdf},
+year = {2007}
+}
+
+@inproceedings{Kumar2017,
+  author={Anjishnu Kumar and Pavankumar Reddy Muddireddy and Markus Dreyer and Bj{\"o}rn Hoffmeister},
+  title={Zero-Shot Learning Across Heterogeneous Overlapping Domains},
+  abstract="We present a zero-shot learning approach for text classification, predicting which natural language understanding domain can handle a given utterance. Our approach can predict domains at runtime that did not exist at training time. We achieve this extensibility by learning to project utterances and domains into the same embedding space while generating each domain-specific embedding from a set of attributes that characterize the domain. Our model is a neural network trained via ranking loss. We evaluate the performance of this zero-shot approach on a subset of a virtual assistant’s third-party domains and show the effectiveness of the technique on new domains not observed during training. We compare to generative baselines and show that our approach requires less storage and performs better on new domains.",
+  year=2017,
+  booktitle={Proceedings of Interspeech},
+  pages={2914--2918},
+  doi={10.21437/Interspeech.2017-516},
+  keywords = {interspeech,zero-shot,nlu,amazon,neural,transfer learning},
+  url={http://dx.doi.org/10.21437/Interspeech.2017-516}
+}
+
+@inproceedings{pentyala-etal-2019-multi,
+    title = "Multi-Task Networks with Universe, Group, and Task Feature Learning",
+    author = "Pentyala, Shiva  and
+      Liu, Mengwen  and
+      Dreyer, Markus",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)",
+    month = jul,
+    year = "2019",
+    address = "Florence, Italy",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/P19-1079",
+    doi = "10.18653/v1/P19-1079",
+    pages = "820--830",
+  keywords = {amazon,acl,multi-task,neural},
+    abstract = "We present methods for multi-task learning that take advantage of natural groupings of related tasks. Task groups may be defined along known properties of the tasks, such as task domain or language. Such task groups represent supervised information at the inter-task level and can be encoded into the model. We investigate two variants of neural network architectures that accomplish this, learning different feature spaces at the levels of individual tasks, task groups, as well as the universe of all tasks: (1) parallel architectures encode each input simultaneously into feature spaces at different levels; (2) serial architectures encode each input successively into feature spaces at different levels in the task hierarchy. We demonstrate the methods on natural language understanding (NLU) tasks, where a grouping of tasks into different task domains leads to improved performance on ATIS, Snips, and a large in-house dataset.",
+}
+
+@inproceedings{dreyer-graehl-2015-hyp,
+    title = "hyp: A Toolkit for Representing, Manipulating, and Optimizing Hypergraphs",
+    author = "Dreyer, Markus  and
+      Graehl, Jonathan",
+    booktitle = "Proceedings of the 2015 Conference of the North {A}merican Chapter of the Association for Computational Linguistics (ACL): Demonstrations",
+    month = jun,
+    year = "2015",
+    address = "Denver, Colorado",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/N15-3003",
+    doi = "10.3115/v1/N15-3003",
+    pages = "11--15",
+  keywords = {hyp,acl,dynamic programming,hypergraphs,finite state},
+    abstract = "We present hyp, an open-source toolkit for
+the representation, manipulation, and optimization of weighted directed hypergraphs.
+hyp provides compose, project, invert functionality, k-best path algorithms,
+the inside and outside algorithms, and more.
+Finite-state machines are modeled as a special case of directed hypergraphs. hyp consists of a C++ API, as well as a command
+line tool, and is available for download at github.com/sdl-research/hyp."
+}
+
+@inproceedings{dreyer-dong-2015-apro,
+    title = "{APRO}: All-Pairs Ranking Optimization for {MT} Tuning",
+    author = "Dreyer, Markus  and
+      Dong, Yuanzhe",
+    abstract = "We present APRO, a new method for machine translation tuning that can handle large feature sets. As opposed to other popular methods (e.g., MERT, MIRA, PRO), which involve randomness and require multiple runs to obtain a reliable result, APRO gives the same result on any run, given initial feature weights. APRO follows the pairwise ranking approach of PRO (Hopkins and May, 2011), but instead of ranking a small sampled subset of pairs from the kbest list, APRO efficiently ranks all pairs. By obviating the need for manually determined sampling settings, we obtain more reliable results. APRO converges more quickly than PRO and gives similar or better translation results.",
+    booktitle = "Proceedings of the 2015 Conference of the North {A}merican Chapter of the Association for Computational Linguistics (ACL): Human Language Technologies",
+    month = may # "{--}" # jun,
+    year = "2015",
+    address = "Denver, Colorado",
+    publisher = "Association for Computational Linguistics (ACL)",
+    url = "https://www.aclweb.org/anthology/N15-1106",
+    doi = "10.3115/v1/N15-1106",
+  keywords = {machine translation,acl,ranking},
+    pages = "1018--1023",
+}
